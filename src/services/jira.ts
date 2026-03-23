@@ -5,9 +5,11 @@ const PROXY_URL = 'http://localhost:3001/api/jira/issue'
 
 export async function createJiraIssue(
   scenario: GherkinScenario,
-  config: JiraConfig
+  config: JiraConfig,
+  resolvedChildType?: string  // tipo resolvido pela análise automática do card pai
 ): Promise<string> {
-  const isSubtask = Boolean(config.parentIssueKey?.trim())
+  const hasParent = Boolean(config.parentIssueKey?.trim())
+  const issueType = resolvedChildType ?? config.issueType
 
   const fields: Record<string, unknown> = {
     project: { key: config.projectKey },
@@ -23,11 +25,10 @@ export async function createJiraIssue(
         },
       ],
     },
-    // Em projetos next-gen o tipo não muda para "Subtask" — mantém o tipo escolhido
-    issuetype: { name: config.issueType },
+    issuetype: { name: issueType },
   }
 
-  if (isSubtask) {
+  if (hasParent) {
     fields.parent = { key: config.parentIssueKey!.trim().toUpperCase() }
   }
 

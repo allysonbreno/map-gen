@@ -20,3 +20,16 @@ export interface JiraConfig {
 }
 
 export type AppStep = 'idle' | 'recording' | 'analyzing' | 'reviewing' | 'sending'
+
+export type RecordingMode = 'desktop' | 'appium'
+
+export interface AppiumConfig {
+  serverUrl: string        // ex: "http://localhost:4723"
+  platformName: string     // "Android" | "iOS"
+  deviceName: string       // ex: "emulator-5554"
+  automationName: string   // "UiAutomator2" | "XCUITest"
+  platformVersion?: string
+  app?: string             // caminho ou URL do .apk/.ipa (opcional)
+  noReset?: boolean
+  udid?: string            // para dispositivos reais
+}

@@ -38,12 +38,12 @@ export default function App() {
     }
   }
 
-  const handleJiraSubmit = async (config: JiraConfig) => {
+  const handleJiraSubmit = async (config: JiraConfig, resolvedChildType?: string) => {
     if (!scenario) return
     setJiraLoading(true)
 
     try {
-      const key = await createJiraIssue(scenario, config)
+      const key = await createJiraIssue(scenario, config, resolvedChildType)
       setJiraResult(key)
       setShowJiraModal(false)
       setStep('idle')
@@ -63,8 +63,8 @@ export default function App() {
   return (
     <div className={styles.app}>
       <header className={styles.header}>
-        <h1 className={styles.title}>FlowDoc</h1>
-        <p className={styles.subtitle}>Grave. Analise. Documente.</p>
+        <h1 className={styles.title}>FlowSpec</h1>
+        <p className={styles.subtitle}>Capture. Analyze. Specify.</p>
       </header>
 
       <main className={styles.main}>
@@ -89,7 +89,7 @@ export default function App() {
         {step === 'analyzing' && (
           <div className={styles.analyzing}>
             <div className={styles.spinner} />
-            <p>Analisando fluxo com Claude...</p>
+            <p>Analisando fluxo com Gemini...</p>
           </div>
         )}
 
@@ -107,7 +107,7 @@ export default function App() {
 
       {showJiraModal && (
         <JiraModal
-          onSubmit={handleJiraSubmit}
+          onSubmit={(config, resolvedChildType) => handleJiraSubmit(config, resolvedChildType)}
           onCancel={() => setShowJiraModal(false)}
           loading={jiraLoading}
         />
