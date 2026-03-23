@@ -1,0 +1,88 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  border-radius: 10px;
+  padding: 28px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 4px;
+}
+
+.input {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input:focus { border-color: #0052cc; }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btnCancel {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btnSubmit {
+  background: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btnSubmit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.optional {
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #0052cc;
+  margin: 0;
+  padding: 4px 8px;
+  background: #e8f0fe;
+  border-radius: 4px;
+}

@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.input {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus { border-color: #3b82f6; }
+
+.textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+}
+
+.textarea:focus { border-color: #3b82f6; }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btnBack {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+.btnBack:hover { background: #e5e7eb; }
+
+.btnConfirm {
+  background: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btnConfirm:hover { background: #0041a8; }
