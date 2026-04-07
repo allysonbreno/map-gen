@@ -8,7 +8,8 @@
     "server": "node server.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "figma-mcp": "cd mcp-figma && npx tsx orchestrator.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.2.0",
